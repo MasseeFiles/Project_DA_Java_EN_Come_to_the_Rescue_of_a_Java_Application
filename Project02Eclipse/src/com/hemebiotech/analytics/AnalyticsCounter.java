@@ -70,5 +70,5 @@ public class AnalyticsCounter {
 			writer.close();
 }
 }
-
+test modif refactoring v2
 

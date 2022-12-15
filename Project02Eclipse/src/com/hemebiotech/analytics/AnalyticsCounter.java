@@ -10,6 +10,7 @@ import java.util.*;
 public class AnalyticsCounter {
 	public static void main(String []args) throws Exception {
 		// Lire
+		TestAppel();
 		BufferedReader reader = new BufferedReader (new FileReader("symptoms.txt"));
 		String line = reader.readLine();
 		Map<String, Integer> mapSortie = new HashMap<String, Integer>();
@@ -34,5 +35,15 @@ public class AnalyticsCounter {
 			writer.write("\n");				//Passer une ligne
 		}
 		writer.close();							//Fermer le fichier
+	}
+
+	class TestAppel{
+		int a = 2;
+		int b = 1;
+		int sum = 0;
+		public static TestAppel () {
+			sum = a + b;
+			return sum;
+		}
 	}
 }

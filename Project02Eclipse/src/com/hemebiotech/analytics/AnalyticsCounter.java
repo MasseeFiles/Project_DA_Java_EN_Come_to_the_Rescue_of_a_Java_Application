@@ -10,17 +10,12 @@ import java.util.*;
 
 // but
 public class AnalyticsCounter {
-	public static void main(String []args) throws Exception {
-		ReadSymptomDataFromFile ("symptoms.txt");			// appel de fonction qui lit le fichier .txt et créé la map
-		Afficher ("mapSortie");								// appel de fonction qui convertit la map en fichier result.out
+	public static void main(String []args) { // throws Exception {
+		ReadSymptomDataFromFile();            // appel de fonction qui lit le fichier .txt et créé la map
+		Afficher();                                // appel de fonction qui convertit la map en fichier result.out
+	}
 
-
-
-
-
-
-
-		BufferedReader reader = new BufferedReader (new FileReader("symptoms.txt"));
+		/* BufferedReader reader = new BufferedReader (new FileReader("symptoms.txt"));
 		String line = reader.readLine();
 		Map<String, Integer> mapSortie = new HashMap<String, Integer>();   // chercher type de map  classement alphabetique
 
@@ -35,13 +30,15 @@ public class AnalyticsCounter {
 			}
 			line = reader.readLine();
 		}
-
+      */
 		// Afficher
 
 
-	private static void Afficher (String mapSortie) {
-			String mapSortie
-			FileWriter writer = new FileWriter ("result.out");
+	public static void Afficher() {
+
+		System.out.println("hello!");
+		}
+			/* FileWriter writer = new FileWriter ("result.out");
 			Iterator<String> iterateur = mapSortie.keySet().iterator();		//utilisation d'un iterator (objet pour boucler dans une collection)
 				while (iterateur.hasNext()) {
 					String key = iterateur.next();
@@ -49,12 +46,9 @@ public class AnalyticsCounter {
 					writer.write(key);
 					writer.write(" ");
 					writer.write(valeur + "\n");
-			}
+				}
 			writer.close();							//Fermer le fichier
-		}
+			}
+			*/
 
-
-
-
-	}
 }

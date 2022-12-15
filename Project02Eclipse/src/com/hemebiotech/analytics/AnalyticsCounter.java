@@ -7,12 +7,22 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.*;
 
+
+// but
 public class AnalyticsCounter {
 	public static void main(String []args) throws Exception {
-		// Lire
+		ReadSymptomDataFromFile ("symptoms.txt");			// appel de fonction qui lit le fichier .txt et créé la map
+		Afficher ("mapSortie");								// appel de fonction qui convertit la map en fichier result.out
+
+
+
+
+
+
+
 		BufferedReader reader = new BufferedReader (new FileReader("symptoms.txt"));
 		String line = reader.readLine();
-		Map<String, Integer> mapSortie = new HashMap<String, Integer>();
+		Map<String, Integer> mapSortie = new HashMap<String, Integer>();   // chercher type de map  classement alphabetique
 
 		// Compter
 		while (line != null) {
@@ -27,12 +37,24 @@ public class AnalyticsCounter {
 		}
 
 		// Afficher
-		FileWriter writer = new FileWriter ("result.out");
 
-		for (int i=0; i < mapSortie.size(); i++) {						// Boucle pour parcourir les éléments de la map
-			writer.write(i.getKey () + "occurs" + i.getValue() + "time(s)");    //pb
-			writer.write("\n");				//Passer une ligne
+
+	private static void Afficher (String mapSortie) {
+			String mapSortie
+			FileWriter writer = new FileWriter ("result.out");
+			Iterator<String> iterateur = mapSortie.keySet().iterator();		//utilisation d'un iterator (objet pour boucler dans une collection)
+				while (iterateur.hasNext()) {
+					String key = iterateur.next();
+					Integer valeur = mapSortie.get(key);
+					writer.write(key);
+					writer.write(" ");
+					writer.write(valeur + "\n");
+			}
+			writer.close();							//Fermer le fichier
 		}
-		writer.close();							//Fermer le fichier
+
+
+
+
 	}
 }

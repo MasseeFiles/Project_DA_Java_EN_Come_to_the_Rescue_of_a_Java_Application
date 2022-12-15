@@ -20,7 +20,7 @@ public class ReadSymptomDataFromFile implements ISymptomReader {
 	 */
 	public ReadSymptomDataFromFile (String filepath) {
 		this.filepath = filepath;
-	}
+	}		// constructeur de l'objet filepath ???
 	
 	@Override
 	public List<String> GetSymptoms() {

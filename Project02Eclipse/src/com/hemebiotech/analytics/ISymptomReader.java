@@ -1,6 +1,10 @@
 package com.hemebiotech.analytics;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Anything that will read symptom data from a source
@@ -11,6 +15,10 @@ import java.util.List;
  * 
  */
 public interface ISymptomReader {
+	// On met dans l'interface la method pour lire un fichier
+	BufferedReader reader = new BufferedReader (new FileReader("symptoms.txt"));
+	String line = reader.readLine();
+	Map<String, Integer> mapSortie = new HashMap<String, Integer>();   // chercher type de map  classement alphabetique
 	/**
 	 * If no data is available, return an empty List
 	 * 

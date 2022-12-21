@@ -11,15 +11,16 @@ import java.util.Map;
 public class AnalyticsCounter {
 	public static void main(String[] args) throws Exception {
 
-		ReadSymptomDataFromFile	file_Source = new ReadSymptomDataFromFile("symptoms.txt");				//création d'un objet file_Source - instanciation de la classe ReadSymptomDataFromFile
-		file_Source.getSymptoms();																				//appel de la method getSymptoms sur l'objet file_Source - valeur retour est arraylist_result
-		ArrayList<String> list = file_Source.getSymptoms();
+		ReadSymptomDataFromFile	file_Source = new ReadSymptomDataFromFile("symptoms.txt");		//création d'un objet file_Source - instanciation de la classe ReadSymptomDataFromFile
+		ArrayList<String> list = file_Source.getSymptoms();												//appel de la method getSymptoms sur l'objet file_Source pour créer la list  - valeur retour est arraylist_result
 				System.out.println(list);
 
-		//AnalyticsCounter2 count_Source = new AnalyticsCounter2(list);
-																												//appel de la method AnalyticsCounter2 sur l'objet count_Source - valeur retour est arraylist_result
+		AnalyticsCounter2 count_Source = new AnalyticsCounter2(list);										//création d'un objet Count_Source - instanciation de la classe AnalyticsCounter2
+		Map<String, Integer> mapSortie = count_Source.countSymptoms();										//appel de la method ISymptomCounter sur l'objet file_Source pour créer la list  - valeur retour est arraylist_result
+			System.out.println(mapSortie);
+																										//appel de la method ISymptomCounter sur l'objet count_Source - valeur retour est arraylist_result
 
-		FileWriter writer = new FileWriter("result.out");
+	//	FileWriter writer = new FileWriter("result.out");
 
 		// ReadSymptomDataFromFile.getSymptoms("symptoms.txt");
 /*

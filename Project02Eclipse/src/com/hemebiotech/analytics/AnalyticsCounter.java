@@ -3,13 +3,26 @@ package com.hemebiotech.analytics;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.FileWriter;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class AnalyticsCounter {
 	public static void main(String[] args) throws Exception {
-	ReadSymptomDataFromFile.getSymptoms("symptoms.txt");
 
+		ReadSymptomDataFromFile	file_Source = new ReadSymptomDataFromFile("symptoms.txt");				//création d'un objet file_Source - instanciation de la classe ReadSymptomDataFromFile
+		file_Source.getSymptoms();																				//appel de la method getSymptoms sur l'objet file_Source - valeur retour est arraylist_result
+		ArrayList<String> list = file_Source.getSymptoms();
+				System.out.println(list);
+
+		//AnalyticsCounter2 count_Source = new AnalyticsCounter2(list);
+																												//appel de la method AnalyticsCounter2 sur l'objet count_Source - valeur retour est arraylist_result
+
+		FileWriter writer = new FileWriter("result.out");
+
+		// ReadSymptomDataFromFile.getSymptoms("symptoms.txt");
+/*
 		BufferedReader reader = new BufferedReader(new FileReader("symptoms.txt"));
 		String line = reader.readLine();
 		Map<String, Integer> mapSortie = new HashMap<>();
@@ -34,5 +47,7 @@ public class AnalyticsCounter {
 			writer.write(valeur + "\n");
 		}
 		writer.close();                            //Fermer le fichier
+	*/
 	}
+
 }

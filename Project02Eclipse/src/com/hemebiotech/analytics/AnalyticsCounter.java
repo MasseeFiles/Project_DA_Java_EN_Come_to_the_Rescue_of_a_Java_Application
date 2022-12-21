@@ -8,6 +8,7 @@ import java.util.Map;
 
 public class AnalyticsCounter {
 	public static void main(String[] args) throws Exception {
+	ReadSymptomDataFromFile.getSymptoms("symptoms.txt");
 
 		BufferedReader reader = new BufferedReader(new FileReader("symptoms.txt"));
 		String line = reader.readLine();

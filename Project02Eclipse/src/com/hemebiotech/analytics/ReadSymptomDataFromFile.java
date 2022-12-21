@@ -23,7 +23,7 @@ private String filepath;									//l'attribut filepath indique juste un chemin d
 	}															// ... et filepath fait reference au parametre du constructeur
 
 	@Override													//précise pour la class ReadSymptomDataFromFile le comportement de getsymptoms (interface)
-	public List<String> GetSymptoms() {							//List<String> correspond a la valeur de retour de la method GetSymptoms
+	public List<String> getSymptoms() {							//List<String> correspond a la valeur de retour de la method getSymptoms
 		ArrayList<String> result = new ArrayList<>();		//Appel de constructeur pour creer l'objet result (arraylist de string)
 		
 		if (filepath != null) {

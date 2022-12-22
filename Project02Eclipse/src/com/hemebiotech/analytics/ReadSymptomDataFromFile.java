@@ -6,8 +6,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 /**
- * La class ReadSymptomDataFromFile permet de permet de
- * créer une arraylist de string à partir du fichier indiqué par filepathphases d'execution.
+ * La class ReadSymptomDataFromFile permet de
+ * créer une arraylist de string à partir du fichier indiqué par filepath.
  *
  */
 

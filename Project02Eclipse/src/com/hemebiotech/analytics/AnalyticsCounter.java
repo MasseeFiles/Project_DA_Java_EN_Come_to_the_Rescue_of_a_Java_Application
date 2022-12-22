@@ -28,6 +28,9 @@ public class AnalyticsCounter implements ISymptomCounter {
                 outputMap.put(inputArraylist.get(i), 1);
             }
         }
+
         return outputMap;
+
+        //utilisatiopn treemap
     }
 }

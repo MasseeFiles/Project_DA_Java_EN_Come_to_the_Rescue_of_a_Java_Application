@@ -3,20 +3,25 @@ package com.hemebiotech.analytics;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Map;
+import java.util.TreeMap;
 
 /**
  * La class AnalyticsWriter permet
- * d'afficher dans un fichier .txt les données d'une
- * Map (string - integer)
+ * de classer par ordre alphabetique les données d'une hashmap (string - integer)
+ * puis de les afficher dans un fichier .txt
  *
  */
 
 public class AnalyticsWriter implements ISymptomWriter {
     private Map<String, Integer> inputMap;
+    private TreeMap<String, Integer> mapOrdered = new TreeMap<String, Integer>();
+
 
     public AnalyticsWriter(Map<String, Integer> inputMap) {
        this.inputMap = inputMap;
     }
+
+    mapOrdered.putAll(inputMap);
 
     @Override
     public void writeSymptoms() throws IOException {

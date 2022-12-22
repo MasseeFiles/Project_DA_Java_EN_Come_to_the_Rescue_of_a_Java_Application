@@ -1,24 +1,21 @@
 package com.hemebiotech.analytics;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.FileWriter;
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 public class AnalyticsCounter {
 	public static void main(String[] args) throws Exception {
 
-		ReadSymptomDataFromFile	file_Source = new ReadSymptomDataFromFile("symptoms.txt");		//création d'un objet file_Source - instanciation de la classe ReadSymptomDataFromFile
-		ArrayList<String> list = file_Source.getSymptoms();												//appel de la method getSymptoms sur l'objet file_Source pour créer la list  - valeur retour est arraylist_result
+		ReadSymptomDataFromFile	fileSource = new ReadSymptomDataFromFile("symptoms.txt");		//création d'un objet fileSource - instanciation de la classe ReadSymptomDataFromFile
+		ArrayList<String> list = fileSource.getSymptoms();												//appel de la method getSymptoms sur l'objet fileSource pour créer la list  - valeur retour est arraylistResult
 				System.out.println(list);
 
-		AnalyticsCounter2 count_Source = new AnalyticsCounter2(list);										//création d'un objet Count_Source - instanciation de la classe AnalyticsCounter2
-		Map<String, Integer> mapSortie = count_Source.countSymptoms();										//appel de la method ISymptomCounter sur l'objet file_Source pour créer la list  - valeur retour est arraylist_result
+		AnalyticsCounter2 countSource = new AnalyticsCounter2(list);										//création d'un objet countSource - instanciation de la classe AnalyticsCounter2
+		Map<String, Integer> mapSortie = countSource.countSymptoms();										//appel de la method countSymptoms sur l'objet countSource pour créer la map - valeur retour est outputMap
 			System.out.println(mapSortie);
-																										//appel de la method ISymptomCounter sur l'objet count_Source - valeur retour est arraylist_result
+
+		AnalyticsWriter writeSource = new AnalyticsWriter(mapSortie);										//création d'un objet writeSource - instanciation de la classe AnalyticsWriter
+		writeSource.writeSymptoms();																	//appel de la method writeSymptoms sur l'objet writeSource pour créer et remplir le fichier result.out
 
 	//	FileWriter writer = new FileWriter("result.out");
 

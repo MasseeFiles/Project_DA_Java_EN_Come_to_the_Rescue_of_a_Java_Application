@@ -8,26 +8,26 @@ import java.util.Map;
 // La class AnalyticsCounter2 permet de créer une map à partir d'une Arraylist de string
 
 public class AnalyticsCounter2 implements ISymptomCounter {
-    private ArrayList<String> input_ArrayList;
-    private Map<String, Integer> output_Map;  // = new HashMap<>();
+    private ArrayList<String> inputArraylist;
+    private Map<String, Integer> output_Map;
 
     public AnalyticsCounter2(ArrayList<String> input_ArrayList) {                  // Constructeur pour les objets AnalyticsCounter2
-        this.input_ArrayList = input_ArrayList;
+        this.inputArraylist = input_ArrayList;                                      // This.inputArraylist fait reference à l'attribut de la classe AnalyticsCounter2 (ligne 11)
     }
 
     @Override                                                                           // Précise pour la class AnalyticsCounter2 le comportement de countSymptoms (interface)
     public Map<String, Integer> countSymptoms() {
-        Map<String, Integer> output_Map = new HashMap<>();                          // Appel de constructeur pour creer l'objet output_Map
+        Map<String, Integer> outputMap = new HashMap<>();                          // Appel de constructeur pour creer l'objet outputMap
 
-        for (int i = 0; i < input_ArrayList.size(); i++) {                          //boucle pour parcourir la list
-            if (output_Map.containsKey(input_ArrayList.get(i))) {                                     // Recherche si l'élément d'index i est présent dans la map
-                output_Map.computeIfPresent(input_ArrayList.get(i), (key, val) -> val + 1);           // Incrementation de 1 si l'élémént est présent
-                System.out.println(output_Map);                                     // Verification : ce qui se passe à chaque boucle (à supprimer à la fin)
+        for (int i = 0; i < inputArraylist.size(); i++) {                          //boucle pour parcourir la list
+            if (outputMap.containsKey(inputArraylist.get(i))) {                                     // Recherche si l'élément d'index i est présent dans la map
+                outputMap.computeIfPresent(inputArraylist.get(i), (key, val) -> val + 1);           // Incrementation de 1 si l'élémént est présent
+                System.out.println(outputMap);                                     // Verification : ce qui se passe à chaque boucle (à supprimer à la fin)
             } else {                                                                // Creation de l'élément dans la map et incrementation de 1 si pas present
-                output_Map.put(input_ArrayList.get(i), 1);
+                outputMap.put(inputArraylist.get(i), 1);
             }
         }
-        return output_Map;                                            //retour de la list à la class appelante
+        return outputMap;                                            //retour de la list à la class appelante
     }
 }
 /*

@@ -19,12 +19,12 @@ private String filepath;									//l'attribut filepath indique juste un chemin d
 	 * @param filepath a full or partial path to file with symptom strings in it, one per line
 	 */
 	public ReadSymptomDataFromFile (String filepath) {			//constructeur avec filepath en parametre
-		this.filepath = filepath;								//this.filepath fait reference à l'attribut de l'objet à créer (une instance de la classe ReadSymptomDataFromFile)
-	}
+		this.filepath = filepath;								//this.filepath fait reference à l'attribut de la classe ReadSymptomDataFromFile (ligne 16)
+	} //
 
 	@Override													//précise pour la class ReadSymptomDataFromFile le comportement de getSymptoms (interface)
 	public ArrayList<String> getSymptoms() {							//ArrayList<String> correspond a la valeur de retour de la method getSymptoms
-		ArrayList<String> arraylist_result = new ArrayList<>();		//Appel de constructeur pour creer l'objet arraylist_result (arraylist de string: taille modifiable - ok nouvelles données)
+		ArrayList<String> arraylistResult = new ArrayList<>();		//Appel de constructeur pour creer l'objet arraylistResult (arraylist de string: taille modifiable - ok nouvelles données)
 		
 		if (filepath != null) {									//acces au fichier pointé par filepath
 			try {												//gestion des exceptions - cas normal
@@ -32,7 +32,7 @@ private String filepath;									//l'attribut filepath indique juste un chemin d
 				String line = reader.readLine();
 				
 				while (line != null) {							//boucle pour parcourir le fichier source
-					arraylist_result.add(line);							//ajout de nouvel element dans arraylist_result
+					arraylistResult.add(line);							//ajout de nouvel element dans arraylistResult
 					line = reader.readLine();					//lecture ligne par ligne
 				}
 
@@ -42,6 +42,6 @@ private String filepath;									//l'attribut filepath indique juste un chemin d
 			}
 		}
 		// inserer method sort pour classement alphabetique?
-		return arraylist_result;											//retour de la list à la class appelante
+		return arraylistResult;											//retour de la list à la class appelante
 	}
 }

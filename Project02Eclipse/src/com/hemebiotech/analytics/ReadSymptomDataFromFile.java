@@ -28,8 +28,8 @@ private String filepath;									//l'attribut filepath indique juste un chemin d
 		
 		if (filepath != null) {									//acces au fichier pointé par filepath
 			try {												//gestion des exceptions - cas normal
-				BufferedReader reader = new BufferedReader (new FileReader(filepath));
-				String line = reader.readLine();
+				BufferedReader reader = new BufferedReader (new FileReader(filepath));					// Création de l'objet reader avec constructeur predefini BuffeReader
+				String line = reader.readLine();														// Variable line pour lire ligne par ligne
 				
 				while (line != null) {							//boucle pour parcourir le fichier source
 					arraylist_result.add(line);							//ajout de nouvel element dans arraylist_result
@@ -41,7 +41,7 @@ private String filepath;									//l'attribut filepath indique juste un chemin d
 				e.printStackTrace();							//methode pour localiser l'exception (class, ligne...)
 			}
 		}
-		// inserer method sort pour classement alphabetique?
+																// inserer method sort pour classement alphabetique?
 		return arraylist_result;											//retour de la list à la class appelante
 	}
 }

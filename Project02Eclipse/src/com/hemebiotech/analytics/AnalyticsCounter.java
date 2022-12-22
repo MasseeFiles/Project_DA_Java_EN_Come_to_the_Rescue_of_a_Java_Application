@@ -1,51 +1,33 @@
 package com.hemebiotech.analytics;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Map;
 
-public class AnalyticsCounter {
-	public static void main(String[] args) throws Exception {
+/**
+ * La class AnalyticsCounter permet
+ * de créer une map à partir d'une Arraylist de string
+ *
+*/
 
-		ReadSymptomDataFromFile	fileSource = new ReadSymptomDataFromFile("symptoms.txt");		//création d'un objet fileSource - instanciation de la classe ReadSymptomDataFromFile
-		ArrayList<String> list = fileSource.getSymptoms();												//appel de la method getSymptoms sur l'objet fileSource pour créer la list  - valeur retour est arraylistResult
-				System.out.println(list);
+public class AnalyticsCounter implements ISymptomCounter {
+    private ArrayList<String> inputArraylist;
 
-		AnalyticsCounter2 countSource = new AnalyticsCounter2(list);										//création d'un objet countSource - instanciation de la classe AnalyticsCounter2
-		Map<String, Integer> mapSortie = countSource.countSymptoms();										//appel de la method countSymptoms sur l'objet countSource pour créer la map - valeur retour est outputMap
-			System.out.println(mapSortie);
+    public AnalyticsCounter(ArrayList<String> input_ArrayList) {
+        this.inputArraylist = input_ArrayList;
+    }
 
-		AnalyticsWriter writeSource = new AnalyticsWriter(mapSortie);										//création d'un objet writeSource - instanciation de la classe AnalyticsWriter
-		writeSource.writeSymptoms();																	//appel de la method writeSymptoms sur l'objet writeSource pour créer et remplir le fichier result.out
+    @Override
+    public Map<String, Integer> countSymptoms() {
+        Map<String, Integer> outputMap = new HashMap<>();
 
-	//	FileWriter writer = new FileWriter("result.out");
-
-		// ReadSymptomDataFromFile.getSymptoms("symptoms.txt");
-/*
-		BufferedReader reader = new BufferedReader(new FileReader("symptoms.txt"));
-		String line = reader.readLine();
-		Map<String, Integer> mapSortie = new HashMap<>();
-
-		while (line != null) {
-			if (mapSortie.containsKey(line)) {                            // Recherche si l'élément lu est présent dans la map
-				mapSortie.computeIfPresent(line, (key, val) -> val + 1);        // Incrementation de 1 si l'élémént est présent
-				System.out.println(mapSortie);                                // Verification : ce qui se passe à chaque boucle (à supprimer à la fin)
-			} else {                                                            // Creation de l'élément dans la map et incrementation de 1 si l'élément n'est pas present
-				mapSortie.put(line, 1);
-			}
-			line = reader.readLine();
-		}
-
-		// Afficher
-		FileWriter writer = new FileWriter("result.out");
-
-		for (String key : mapSortie.keySet()) {
-			Integer valeur = mapSortie.get(key);
-			writer.write(key);
-			writer.write(" ");
-			writer.write(valeur + "\n");
-		}
-		writer.close();                            //Fermer le fichier
-	*/
-	}
-
+        for (int i = 0; i < inputArraylist.size(); i++) {
+            if (outputMap.containsKey(inputArraylist.get(i))) {
+                outputMap.computeIfPresent(inputArraylist.get(i), (key, val) -> val + 1);
+            } else {
+                outputMap.put(inputArraylist.get(i), 1);
+            }
+        }
+        return outputMap;
+    }
 }

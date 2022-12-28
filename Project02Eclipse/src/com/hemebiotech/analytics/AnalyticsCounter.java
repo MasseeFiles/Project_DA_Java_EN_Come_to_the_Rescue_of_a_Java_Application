@@ -1,36 +1,35 @@
 package com.hemebiotech.analytics;
 
-import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
- * La class AnalyticsCounter permet
- * de créer une map à partir d'une Arraylist de string
- *
+ * The AnalyticsCounter class is a tool designed to count
+ * the symptoms from a raw list (input). The output is a
+ * HashMap (string - integer) containing the symptoms as
+ * keys and how many times they appear in the input list (value).
+ * *
 */
 
 public class AnalyticsCounter implements ISymptomCounter {
-    private ArrayList<String> inputArraylist;
+    private List<String> inputArraylist;
 
-    public AnalyticsCounter(ArrayList<String> input_ArrayList) {
-        this.inputArraylist = input_ArrayList;
+    public AnalyticsCounter(List<String> inputArrayList) {
+        this.inputArraylist = inputArrayList;
     }
 
     @Override
     public Map<String, Integer> countSymptoms() {
         Map<String, Integer> outputMap = new HashMap<>();
 
-        for (int i = 0; i < inputArraylist.size(); i++) {
-            if (outputMap.containsKey(inputArraylist.get(i))) {
-                outputMap.computeIfPresent(inputArraylist.get(i), (key, val) -> val + 1);
+        for (String s : inputArraylist) {           // same as : for (int i = 0; i < inputArraylist.size(); i++) {
+            if (outputMap.containsKey(s)) {
+                outputMap.computeIfPresent(s, (key, val) -> val + 1);
             } else {
-                outputMap.put(inputArraylist.get(i), 1);
+                outputMap.put(s, 1);
             }
         }
-
         return outputMap;
-
-        //utilisatiopn treemap
     }
 }

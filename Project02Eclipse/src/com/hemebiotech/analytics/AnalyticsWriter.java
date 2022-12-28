@@ -6,16 +6,17 @@ import java.util.Map;
 import java.util.TreeMap;
 
 /**
- * La class AnalyticsWriter permet
- * de classer par ordre alphabetique les données d'une hashmap (string - integer)
- * puis de les afficher dans un fichier .txt
- *
+ * The AnalyticsWriter class is a tool designed to sort
+ * alphabetically the symptoms from a HashMap (input) and write
+ * them with their occurence in a .txt file (output).
+ * *
  */
 
 public class AnalyticsWriter implements ISymptomWriter {
     private Map<String, Integer> inputMap;
-    private TreeMap<String, Integer> mapOrdered = new TreeMap<String, Integer>();
 
+    // TreeMap class used because it automatically sorts entries based on the natural ordering of the keys (alphabetical for strings)
+    private TreeMap<String, Integer> mapOrdered = new TreeMap<>();
 
     public AnalyticsWriter(Map<String, Integer> inputMap) {
        this.inputMap = inputMap;
@@ -27,9 +28,8 @@ public class AnalyticsWriter implements ISymptomWriter {
 
         mapOrdered.putAll(inputMap);
 
-
-        for (String key : inputMap.keySet()) {
-            Integer valeur = inputMap.get(key);
+        for (String key : mapOrdered.keySet()) {
+            Integer valeur = mapOrdered.get(key);
             writer.write(key);
             writer.write(" ");
             writer.write(valeur + "\n");

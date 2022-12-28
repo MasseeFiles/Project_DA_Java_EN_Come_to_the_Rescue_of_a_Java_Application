@@ -4,16 +4,16 @@ import java.util.ArrayList;
 import java.util.Map;
 
 /**
- * La class Launcher permet de lancer le programme (Method main)
- * et d'appeler les methodes nécessaires aux differentes phases d'execution.
- *
+ * * The Launcher class is used to launch the program and
+ * call up the methods needed to perform its processing tasks.
+ * *
  */
 
 public class Launcher {
 
 	public static void main(String[] args) throws Exception {
 
-		ReadSymptomDataFromFile	fileSource = new ReadSymptomDataFromFile("symptoms.txt");
+		AnalyticsReader	fileSource = new AnalyticsReader("symptoms.txt");
 		ArrayList<String> outputList = fileSource.getSymptoms();
 
 		AnalyticsCounter countSource = new AnalyticsCounter(outputList);

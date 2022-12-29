@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * The AnalyticsReader class is a tool designed to read and
@@ -21,13 +22,9 @@ private String filepath;
 		this.filepath = filepath;
 	}
 
-	/*	public ArrayList<String> getSymptoms() {
-		ArrayList<String> arraylistResult = new ArrayList<>();
-
-	*/
 	@Override
-	public ArrayList<String> getSymptoms() {
-		ArrayList<String> arraylistResult = new ArrayList<>();
+	public List<String> getSymptoms() {
+		List<String> listSymptoms = new ArrayList<>();
 
 		if (filepath != null) {
 			try {
@@ -35,7 +32,7 @@ private String filepath;
 				String line = reader.readLine();
 
 				while (line != null) {
-					arraylistResult.add(line);
+					listSymptoms.add(line);
 					line = reader.readLine();
 				}
 				reader.close();
@@ -44,6 +41,6 @@ private String filepath;
 				e.printStackTrace();
 			}
 		}
-		return arraylistResult;
+		return listSymptoms;
 	}
 }

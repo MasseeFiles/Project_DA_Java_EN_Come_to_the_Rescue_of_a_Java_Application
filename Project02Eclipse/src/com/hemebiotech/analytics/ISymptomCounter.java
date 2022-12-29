@@ -3,7 +3,7 @@ package com.hemebiotech.analytics;
 import java.util.Map;
 
 /**
- * Anything that will count symptom data from a given source.
+ * Interface used to count symptom data from any given source.
  *
  * The important part is the return value from the operation,
  * which is a map of string-integer that does not contain duplications.

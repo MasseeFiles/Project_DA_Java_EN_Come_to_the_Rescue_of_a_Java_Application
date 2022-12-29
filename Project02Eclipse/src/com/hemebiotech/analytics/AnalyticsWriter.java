@@ -15,11 +15,11 @@ import java.util.TreeMap;
 public class AnalyticsWriter implements ISymptomWriter {
     private Map<String, Integer> inputMap;
 
-    // TreeMap class used because it automatically sorts entries based on the natural ordering of the keys (alphabetical for strings)
+    // TreeMap class is used because it automatically sorts entries based on the natural ordering of the keys (alphabetical for strings)
     private TreeMap<String, Integer> mapOrdered = new TreeMap<>();
 
     public AnalyticsWriter(Map<String, Integer> inputMap) {
-       this.inputMap = inputMap;
+        this.inputMap = inputMap;
     }
 
     @Override

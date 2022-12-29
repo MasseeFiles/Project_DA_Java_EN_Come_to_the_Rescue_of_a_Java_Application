@@ -13,26 +13,26 @@ import java.util.TreeMap;
  */
 
 public class AnalyticsWriter implements ISymptomWriter {
-    private Map<String, Integer> inputMap;
+    private Map<String, Integer> inputWrite;
 
     // TreeMap class is used because it automatically sorts entries based on the natural ordering of the keys (alphabetical for strings)
     private TreeMap<String, Integer> mapOrdered = new TreeMap<>();
 
-    public AnalyticsWriter(Map<String, Integer> inputMap) {
-        this.inputMap = inputMap;
+    public AnalyticsWriter(Map<String, Integer> inputWrite) {
+        this.inputWrite = inputWrite;
     }
 
     @Override
     public void writeSymptoms() throws IOException {
         FileWriter writer = new FileWriter("result.out");
 
-        mapOrdered.putAll(inputMap);
+        mapOrdered.putAll(inputWrite);
 
         for (String key : mapOrdered.keySet()) {
-            Integer valeur = mapOrdered.get(key);
+            Integer value = mapOrdered.get(key);
             writer.write(key);
             writer.write(" ");
-            writer.write(valeur + "\n");
+            writer.write(value + "\n");
         }
         writer.close();
     }

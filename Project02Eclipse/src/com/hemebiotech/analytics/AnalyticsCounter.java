@@ -13,23 +13,23 @@ import java.util.Map;
 */
 
 public class AnalyticsCounter implements ISymptomCounter {
-    private List<String> inputArraylist;
+    private List<String> inputCount;
 
-    public AnalyticsCounter(List<String> inputArrayList) {
-        this.inputArraylist = inputArrayList;
+    public AnalyticsCounter(List<String> inputCount) {
+        this.inputCount = inputCount;
     }
 
     @Override
     public Map<String, Integer> countSymptoms() {
-        Map<String, Integer> outputMap = new HashMap<>();
+        Map<String, Integer> outputCount = new HashMap<>();
 
-        for (String s : inputArraylist) {           // same as : for (int i = 0; i < inputArraylist.size(); i++) {
-            if (outputMap.containsKey(s)) {
-                outputMap.computeIfPresent(s, (key, val) -> val + 1);
+        for (String s : inputCount) {
+            if (outputCount.containsKey(s)) {
+                outputCount.computeIfPresent(s, (key, val) -> val + 1);
             } else {
-                outputMap.put(s, 1);
+                outputCount.put(s, 1);
             }
         }
-        return outputMap;
+        return outputCount;
     }
 }

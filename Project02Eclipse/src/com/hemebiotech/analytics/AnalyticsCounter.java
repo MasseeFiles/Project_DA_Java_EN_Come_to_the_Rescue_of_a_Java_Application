@@ -7,23 +7,23 @@ import java.util.Map;
 /**
  * The AnalyticsCounter class is a tool designed to count
  * the symptoms from a raw list (input). The output is a
- * HashMap (string - integer) containing the symptoms as
+ * Map (string - integer) containing the symptoms as
  * keys and how many times they appear in the input list (value).
  * *
 */
 
 public class AnalyticsCounter implements ISymptomCounter {
-    private List<String> inputCount;
+    private List<String> symptoms;
 
     public AnalyticsCounter(List<String> inputCount) {
-        this.inputCount = inputCount;
+        this.symptoms = inputCount;
     }
 
     @Override
     public Map<String, Integer> countSymptoms() {
         Map<String, Integer> outputCount = new HashMap<>();
 
-        for (String s : inputCount) {
+        for (String s : symptoms) {
             if (outputCount.containsKey(s)) {
                 outputCount.computeIfPresent(s, (key, val) -> val + 1);
             } else {
